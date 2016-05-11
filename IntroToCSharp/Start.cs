@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Collections.Generic;
 
 namespace IntroToCSharp
 {
@@ -13,6 +14,7 @@ namespace IntroToCSharp
                 input = showMenu(String.Join(Environment.NewLine,
                     "(1) CustomArrayList [List using array]",
                     "(2) DynamicList [List using Dynamic Linked List]",
+                    "(3) DynamicList [List using Dynamic Linked List]",
                     "(c) Clear",
                     "(e) Exit"));
                 switch (input)
@@ -22,6 +24,9 @@ namespace IntroToCSharp
                         break;
                     case "2":
                         DynamicLinkedList();
+                        break;
+                    case "3":
+                        PrintPrimeNumberWithList();
                         break;
                     case "c":
                         Console.Clear();
@@ -159,6 +164,14 @@ namespace IntroToCSharp
             Console.WriteLine("count: " + DynamicLinkedList.Count);
             PrintDynamicLinkedListOfStrings(DynamicLinkedList);
             Console.WriteLine("------------");
+        }
+        static void PrintPrimeNumberWithList()
+        {
+            List<int> primes = PrimeNumberWithList.GetPrimes(200, 300);
+            foreach (var item in primes)
+            {
+                Console.Write("{0} ", item);
+            }
         }
     }
 }

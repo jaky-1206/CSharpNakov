@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="CustomArrayList.cs" />
     <Compile Include="DynamicList.cs" />
-    <Compile Include="Othr.cs" />
+    <Compile Include="PrimeNumberWithList.cs" />
     <Compile Include="Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
