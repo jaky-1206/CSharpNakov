@@ -11,21 +11,23 @@ namespace IntroToCSharp
             string input;
             do
             {
-                input = showMenu(String.Join(Environment.NewLine,
+                input = ShowMenu(String.Join(Environment.NewLine,
                     "(1) List using array",
                     "(2) List using Dynamic Linked List",
                     "(3) Prime Number Generation using Generic List class",
                     "(4) Set operation using Generic List class",
                     "(5) Converting List to Array",
-                    "(c) Clear",
+                    "(6) Correct Brackets Check Using Generic Stack Class",
+                    "(7) sequence of numbers (N, N+1, 2*N) Using Generic Queue Class",
                     "(e) Exit"));
+                Console.Clear();
                 switch (input)
                 {
                     case "1":
                         CustomListUsingArray();
                         break;
                     case "2":
-                        ListUsingDynamicLinkedList();
+                        ListUsingCustomSingleLinkedList();
                         break;
                     case "3":
                         PrimeNumberusinghList();
@@ -36,8 +38,11 @@ namespace IntroToCSharp
                     case "5":
                         ConvertListToArray();
                         break;
-                    case "c":
-                        Console.Clear();
+                    case "6":
+                        CorrectBracketsCheckUsingGenericStackClass();
+                        break;
+                    case "7":
+                        SequenceOfNumbersUsingGenericQueueClass();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -46,7 +51,7 @@ namespace IntroToCSharp
                 }
             } while (input.ToLower() != "e");
         }
-        static string showMenu(string options)
+        static string ShowMenu(string options)
         {
             Console.WriteLine("*********************************************************");
             Console.WriteLine("****************** SELECT AND OPTION ********************");
@@ -55,8 +60,14 @@ namespace IntroToCSharp
             Console.WriteLine("*********************************************************");
             return Console.ReadLine();
         }
-
-        static void printCustomListUsingArray(CustomArrayList<string> customArrayList)
+        static void ClearAfterKeyPress()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue....");
+            Console.ReadKey();
+            Console.Clear();
+        }
+        static void PrintCustomListUsingArray(CustomArrayList<string> customArrayList)
         {
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < customArrayList.Count; i++)
@@ -65,7 +76,6 @@ namespace IntroToCSharp
             }
             Console.WriteLine(result.ToString());
         }
-
         static void CustomListUsingArray()
         {
             CustomArrayList<string> custArrayList = new CustomArrayList<string>();
@@ -80,13 +90,13 @@ namespace IntroToCSharp
             custArrayList.Add("c");
             custArrayList.Add("d");
             Console.WriteLine("count: " + custArrayList.Count);
-            printCustomListUsingArray(custArrayList);
+            PrintCustomListUsingArray(custArrayList);
             Console.WriteLine("------------");
             Console.WriteLine("index of c: " + custArrayList.IndexOf("c"));
             custArrayList.Insert(1, "j");
             custArrayList.Insert(2, "k");
             Console.WriteLine("count: " + custArrayList.Count);
-            printCustomListUsingArray(custArrayList);
+            PrintCustomListUsingArray(custArrayList);
             Console.WriteLine("------------");
             Console.WriteLine("index of c: " + custArrayList.IndexOf("c"));
             Console.WriteLine("Does array contains c? " + custArrayList.Contains("c"));
@@ -95,27 +105,27 @@ namespace IntroToCSharp
             custArrayList[5] = "m";
             Console.WriteLine("Replaced 6th element :" + custArrayList[5]);
             Console.WriteLine("count: " + custArrayList.Count);
-            printCustomListUsingArray(custArrayList);
+            PrintCustomListUsingArray(custArrayList);
             Console.WriteLine("------------");
             custArrayList.Add("y");
             custArrayList.Add("z");
             Console.WriteLine("added y and z");
-            printCustomListUsingArray(custArrayList);
+            PrintCustomListUsingArray(custArrayList);
             Console.WriteLine("count: " + custArrayList.Count);
             Console.WriteLine("------------");
             Console.WriteLine("Removing at 7th index");
             custArrayList.RemoveAt(7);
             Console.WriteLine("count: " + custArrayList.Count);
-            printCustomListUsingArray(custArrayList);
+            PrintCustomListUsingArray(custArrayList);
             Console.WriteLine("------------");
             Console.WriteLine("Removing y");
             custArrayList.Remove("y");
             Console.WriteLine("count: " + custArrayList.Count);
-            printCustomListUsingArray(custArrayList);
+            PrintCustomListUsingArray(custArrayList);
             Console.WriteLine("------------");
+            ClearAfterKeyPress();
         }
-
-        static void PrintListUsingDynamicLinkedList(DynamicList<string> dynamicList)
+        static void PrintListUsingCustomSingleLinkedList(DynamicList<string> dynamicList)
         {
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < dynamicList.Count; i++)
@@ -125,7 +135,7 @@ namespace IntroToCSharp
             Console.WriteLine(result.ToString());
 
         }
-        static void ListUsingDynamicLinkedList()
+        static void ListUsingCustomSingleLinkedList()
         {
             DynamicList<string> DynamicLinkedList = new DynamicList<string>();
             Console.WriteLine("------------------------------------------------");
@@ -139,13 +149,13 @@ namespace IntroToCSharp
             DynamicLinkedList.Add("c");
             DynamicLinkedList.Add("d");
             Console.WriteLine("count: " + DynamicLinkedList.Count);
-            PrintListUsingDynamicLinkedList(DynamicLinkedList);
+            PrintListUsingCustomSingleLinkedList(DynamicLinkedList);
             Console.WriteLine("------------");
             Console.WriteLine("index of c: " + DynamicLinkedList.IndexOf("c"));
             DynamicLinkedList.Add("j");
             DynamicLinkedList.Add("k");
             Console.WriteLine("count: " + DynamicLinkedList.Count);
-            PrintListUsingDynamicLinkedList(DynamicLinkedList);
+            PrintListUsingCustomSingleLinkedList(DynamicLinkedList);
             Console.WriteLine("------------");
             Console.WriteLine("index of c: " + DynamicLinkedList.IndexOf("c"));
             Console.WriteLine("Does array contains c? " + DynamicLinkedList.Contains("c"));
@@ -154,24 +164,25 @@ namespace IntroToCSharp
             DynamicLinkedList[5] = "m";
             Console.WriteLine("Replaced 6th element :" + DynamicLinkedList[5]);
             Console.WriteLine("count: " + DynamicLinkedList.Count);
-            PrintListUsingDynamicLinkedList(DynamicLinkedList);
+            PrintListUsingCustomSingleLinkedList(DynamicLinkedList);
             Console.WriteLine("------------");
             DynamicLinkedList.Add("y");
             DynamicLinkedList.Add("z");
             Console.WriteLine("added y and z");
-            PrintListUsingDynamicLinkedList(DynamicLinkedList);
+            PrintListUsingCustomSingleLinkedList(DynamicLinkedList);
             Console.WriteLine("count: " + DynamicLinkedList.Count);
             Console.WriteLine("------------");
             Console.WriteLine("Removing at 7th index");
             DynamicLinkedList.RemoveAt(7);
             Console.WriteLine("count: " + DynamicLinkedList.Count);
-            PrintListUsingDynamicLinkedList(DynamicLinkedList);
+            PrintListUsingCustomSingleLinkedList(DynamicLinkedList);
             Console.WriteLine("------------");
             Console.WriteLine("Removing y");
             DynamicLinkedList.Remove("y");
             Console.WriteLine("count: " + DynamicLinkedList.Count);
-            PrintListUsingDynamicLinkedList(DynamicLinkedList);
+            PrintListUsingCustomSingleLinkedList(DynamicLinkedList);
             Console.WriteLine("------------");
+            ClearAfterKeyPress();
         }
         static void PrimeNumberusinghList()
         {
@@ -180,6 +191,8 @@ namespace IntroToCSharp
             {
                 Console.Write("{0} ", item);
             }
+            Console.WriteLine();
+            ClearAfterKeyPress();
         }
         static void SetExampleUsingList()
         {
@@ -206,11 +219,12 @@ namespace IntroToCSharp
             List<int> intersectList = SetUsingList.Intersect(firstList, secondList);
             Console.Write("intersectList = ");
             SetUsingList.PrintList(intersectList);
+            ClearAfterKeyPress();
 
         }
         static void ConvertListToArray()
         {
-            int[] arr = new int[]{ 1, 2, 3 };
+            int[] arr = new int[] { 1, 2, 3 };
             List<int> list = new List<int>(arr);
             int[] convertedArray = list.ToArray();
             foreach (var item in convertedArray)
@@ -218,6 +232,41 @@ namespace IntroToCSharp
                 Console.Write("{0} ", item);
             }
             Console.WriteLine("");
+            ClearAfterKeyPress();
+        }
+        static void CorrectBracketsCheckUsingGenericStackClass()
+        {
+            string expression = "1 + (3 + 2 - (2+3)*4 - ((3+1)*(4-2)))";
+            Stack<int> stack = new Stack<int>();
+            bool correctBrackets = true;
+            for (int index = 0; index < expression.Length; index++)
+            {
+                char ch = expression[index];
+                if (ch == '(')
+                {
+                    stack.Push(index);
+                }
+                else if (ch == ')')
+                {
+                    if (stack.Count == 0)
+                    {
+                        correctBrackets = false;
+                        break;
+                    }
+                    stack.Pop();
+                }
+            }
+            if (stack.Count != 0)
+            {
+                correctBrackets = false;
+            }
+            Console.WriteLine("Are the brackets correct? {0}", correctBrackets);
+            ClearAfterKeyPress();
+        }
+        static void SequenceOfNumbersUsingGenericQueueClass()
+        {
+            Console.WriteLine("Sequence N, N+1, 2*N – Example");
+            ClearAfterKeyPress();
         }
     }
 }
