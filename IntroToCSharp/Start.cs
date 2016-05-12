@@ -16,6 +16,7 @@ namespace IntroToCSharp
                     "(2) List using Dynamic Linked List",
                     "(3) Prime Number Generation using Generic List class",
                     "(4) Set operation using Generic List class",
+                    "(5) Converting List to Array",
                     "(c) Clear",
                     "(e) Exit"));
                 switch (input)
@@ -31,6 +32,9 @@ namespace IntroToCSharp
                         break;
                     case "4":
                         SetExampleUsingList();
+                        break;
+                    case "4":
+                        ConvertListToArray();
                         break;
                     case "c":
                         Console.Clear();
@@ -203,6 +207,12 @@ namespace IntroToCSharp
             Console.Write("intersectList = ");
             SetUsingList.PrintList(intersectList);
 
+        }
+        static void ConvertListToArray()
+        {
+            int[] arr = new int[]{ 1, 2, 3 };
+            List<int> list = new List<int>(arr);
+            int[] convertedArray = list.ToArray();
         }
     }
 }
