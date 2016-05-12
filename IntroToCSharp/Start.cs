@@ -33,7 +33,7 @@ namespace IntroToCSharp
                     case "4":
                         SetExampleUsingList();
                         break;
-                    case "4":
+                    case "5":
                         ConvertListToArray();
                         break;
                     case "c":
@@ -213,6 +213,11 @@ namespace IntroToCSharp
             int[] arr = new int[]{ 1, 2, 3 };
             List<int> list = new List<int>(arr);
             int[] convertedArray = list.ToArray();
+            foreach (var item in convertedArray)
+            {
+                Console.Write("{0} ", item);
+            }
+            Console.WriteLine("");
         }
     }
 }
