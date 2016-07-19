@@ -265,7 +265,14 @@ namespace IntroToCSharp
         }
         static void SequenceOfNumbersUsingGenericQueueClass()
         {
-            Console.WriteLine("Sequence N, N+1, 2*N – Example");
+            int n = 3;
+            int p = 16;
+
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(n);
+            int index = 0;
+            Console.WriteLine("S =");
+
             ClearAfterKeyPress();
         }
     }
