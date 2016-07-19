@@ -63,7 +63,7 @@ namespace IntroToCSharp
         static void ClearAfterKeyPress()
         {
             Console.WriteLine();
-            Console.WriteLine("Press any key to continue....");
+            Console.WriteLine("Press any key to go back to main menu ....");
             Console.ReadKey();
             Console.Clear();
         }
