@@ -74,6 +74,10 @@ namespace IntroToCSharp
         /// <returns>the child on the given position</returns>
         public TreeNode<T> GetChild(int index)
         {
+            //if (index > this.children.Count || this.children.Count == 0)
+            //{
+            //    throw new IndexOutOfRangeException("----");
+            //}
             return this.children[index];
         }
     }

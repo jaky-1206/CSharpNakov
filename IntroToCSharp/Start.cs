@@ -19,6 +19,7 @@ namespace IntroToCSharp
                     "(5) Converting List to Array",
                     "(6) Correct Brackets Check Using Generic Stack Class",
                     "(7) sequence of numbers (N, N+1, 2*N) Using Generic Queue Class",
+                    "(8) Tree Example",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -43,6 +44,9 @@ namespace IntroToCSharp
                         break;
                     case "7":
                         SequenceOfNumbersUsingGenericQueueClass();
+                        break;
+                    case "8":
+                        TreeExample();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -286,6 +290,40 @@ namespace IntroToCSharp
                 queue.Enqueue(current + 1);
                 queue.Enqueue(2 * current);
             }
+
+            ClearAfterKeyPress();
+        }
+        static void TreeExample()
+        {
+            /// <summary>
+            /// Shows a sample usage of the Tree<T> class
+            /// </summary>
+
+
+            // Create the tree from the sample
+            Tree<int> tree =
+                new Tree<int>(7,
+                    new Tree<int>(19, 
+                        new Tree<int>(1),
+                        new Tree<int>(12),
+                        new Tree<int>(31)),
+                    new Tree<int>(21),
+                    new Tree<int>(14,
+                        new Tree<int>(23), new Tree<int>(6))
+            );
+
+            // Traverse and print the tree using Depth-First-Search
+            tree.TraverseDFS();
+            // Console output:
+            // 7
+            //  19
+            //      1
+            //      12
+            //      31
+            //  21
+            //  14
+            //      23
+            //      6
 
             ClearAfterKeyPress();
         }
