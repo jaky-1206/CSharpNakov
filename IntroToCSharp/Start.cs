@@ -20,6 +20,7 @@ namespace IntroToCSharp
                     "(6) Correct Brackets Check Using Generic Stack Class",
                     "(7) sequence of numbers (N, N+1, 2*N) Using Generic Queue Class",
                     "(8) Tree Example",
+                    "(9) Directory Traverser DFS",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -325,6 +326,10 @@ namespace IntroToCSharp
             //      23
             //      6
 
+            ClearAfterKeyPress();
+        }
+        static void DirectoryTraverserDFS()
+        {
             ClearAfterKeyPress();
         }
     }

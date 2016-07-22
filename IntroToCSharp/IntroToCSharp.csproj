@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomArrayList.cs" />
+    <Compile Include="DirectoryTraverserDFS.cs" />
     <Compile Include="DynamicList.cs" />
     <Compile Include="PrimeNumberWithList.cs" />
     <Compile Include="SetUsingList.cs" />
