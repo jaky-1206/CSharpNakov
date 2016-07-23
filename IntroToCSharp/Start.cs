@@ -21,6 +21,7 @@ namespace IntroToCSharp
                     "(7) sequence of numbers (N, N+1, 2*N) Using Generic Queue Class",
                     "(8) Tree Example",
                     "(9) Directory Traverser DFS",
+                    "(10) Directory Traverser BFS",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -341,7 +342,7 @@ namespace IntroToCSharp
         }
         static void DirectoryTraverserBFSExample()
         {
-            //DirectoryTraverserDFS.TraverseDir(@"F:\\Audio Songs\\English\\");
+            DirectoryTraverserBFS.TraverseDir(@"F:\\Audio Songs\\English\\");
             ClearAfterKeyPress();
         }
     }
