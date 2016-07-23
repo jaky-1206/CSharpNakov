@@ -49,6 +49,12 @@ namespace IntroToCSharp
                     case "8":
                         TreeExample();
                         break;
+                    case "9":
+                        DirectoryTraverserDFSExample();
+                        break;
+                    case "10":
+                        DirectoryTraverserBFSExample();
+                        break;
                     default:
                         Console.WriteLine("Invalid Input");
                         break;
@@ -328,8 +334,14 @@ namespace IntroToCSharp
 
             ClearAfterKeyPress();
         }
-        static void DirectoryTraverserDFS()
+        static void DirectoryTraverserDFSExample()
         {
+            DirectoryTraverserDFS.TraverseDir("F:\\Audio Songs\\English\\");
+            ClearAfterKeyPress();
+        }
+        static void DirectoryTraverserBFSExample()
+        {
+            //DirectoryTraverserDFS.TraverseDir(@"F:\\Audio Songs\\English\\");
             ClearAfterKeyPress();
         }
     }
