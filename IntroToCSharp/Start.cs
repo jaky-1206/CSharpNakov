@@ -22,6 +22,7 @@ namespace IntroToCSharp
                     "(8) Tree Example",
                     "(9) Directory Traverser DFS",
                     "(10) Directory Traverser BFS",
+                    "(11) Binary Tree Example",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -55,6 +56,9 @@ namespace IntroToCSharp
                         break;
                     case "10":
                         DirectoryTraverserBFSExample();
+                        break;
+                    case "11":
+                        BinaryTreeExample();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -311,7 +315,7 @@ namespace IntroToCSharp
             // Create the tree from the sample
             Tree<int> tree =
                 new Tree<int>(7,
-                    new Tree<int>(19, 
+                    new Tree<int>(19,
                         new Tree<int>(1),
                         new Tree<int>(12),
                         new Tree<int>(31)),
@@ -343,6 +347,27 @@ namespace IntroToCSharp
         static void DirectoryTraverserBFSExample()
         {
             DirectoryTraverserBFS.TraverseDir(@"F:\\Audio Songs\\English\\");
+            ClearAfterKeyPress();
+        }
+        static void BinaryTreeExample()
+        {
+            // Create the binary tree from the sample
+            // Create the binary tree from the sample
+            BinaryTree<int> binaryTree =
+                new BinaryTree<int>(14,
+                    new BinaryTree<int>(19,
+                        new BinaryTree<int>(23),
+                        new BinaryTree<int>(6,
+                            new BinaryTree<int>(10),
+                            new BinaryTree<int>(21))),
+                    new BinaryTree<int>(15,
+                        new BinaryTree<int>(3),
+                        null));
+
+            // Traverse and print the tree in in-order manner
+            binaryTree.PrintInOrder();
+            Console.WriteLine();
+
             ClearAfterKeyPress();
         }
     }

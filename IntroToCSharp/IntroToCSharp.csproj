@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryTree.cs" />
     <Compile Include="CustomArrayList.cs" />
     <Compile Include="DirectoryTraverserBFS.cs" />
     <Compile Include="DirectoryTraverserDFS.cs" />
