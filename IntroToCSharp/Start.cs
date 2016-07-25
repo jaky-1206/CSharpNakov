@@ -23,6 +23,7 @@ namespace IntroToCSharp
                     "(9) Directory Traverser DFS",
                     "(10) Directory Traverser BFS",
                     "(11) Binary Tree Example",
+                    "(12) Binary Search Tree Example",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -59,6 +60,9 @@ namespace IntroToCSharp
                         break;
                     case "11":
                         BinaryTreeExample();
+                        break;
+                    case "12":
+                        BinarySearchTreeExample();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -367,6 +371,22 @@ namespace IntroToCSharp
             // Traverse and print the tree in in-order manner
             binaryTree.PrintInOrder();
             Console.WriteLine();
+
+            ClearAfterKeyPress();
+        }
+        static void BinarySearchTreeExample()
+        {
+            BinarySearchTree<string> tree = new BinarySearchTree<string>();
+            tree.Insert("Telerik");
+            tree.Insert("Google");
+            tree.Insert("Microsoft");
+            tree.PrintTreeDFS(); // Google Microsoft Telerik
+            Console.WriteLine(tree.Contains("Telerik")); // True
+            Console.WriteLine(tree.Contains("IBM")); // False
+            tree.Remove("Telerik");
+            Console.WriteLine(tree.Contains("Telerik")); // False
+            tree.PrintTreeDFS(); // Google Microsoft
+
 
             ClearAfterKeyPress();
         }
