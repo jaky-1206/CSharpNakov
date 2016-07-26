@@ -66,6 +66,7 @@
     <Compile Include="DirectoryTraverserBFS.cs" />
     <Compile Include="DirectoryTraverserDFS.cs" />
     <Compile Include="DynamicList.cs" />
+    <Compile Include="Graph.cs" />
     <Compile Include="PrimeNumberWithList.cs" />
     <Compile Include="SetUsingList.cs" />
     <Compile Include="Start.cs" />
