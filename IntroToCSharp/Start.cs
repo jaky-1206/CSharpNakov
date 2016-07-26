@@ -24,6 +24,7 @@ namespace IntroToCSharp
                     "(10) Directory Traverser BFS",
                     "(11) Binary Tree Example",
                     "(12) Binary Search Tree Example",
+                    "(13) Graph Components (Undirected graph Example)",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -63,6 +64,9 @@ namespace IntroToCSharp
                         break;
                     case "12":
                         BinarySearchTreeExample();
+                        break;
+                    case "13":
+                        GraphComponentsExample();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -387,6 +391,44 @@ namespace IntroToCSharp
             Console.WriteLine(tree.Contains("Telerik")); // False
             tree.PrintTreeDFS(); // Google Microsoft
 
+
+            ClearAfterKeyPress();
+        }
+        static void GraphComponentsTraverseDFS(int v,bool[] visited,Graph graph)
+        {
+            if (!visited[v])
+            {
+                Console.Write(v + " ");
+                visited[v] = true;
+                foreach (int child in graph.GetSuccessors(v))
+                {
+                    GraphComponentsTraverseDFS(child,visited, graph);
+                }
+            }
+        }
+        static void GraphComponentsExample()
+        {
+            Graph graph = new Graph(new List<int>[] {
+                new List<int>() {4}, // successors of vertice 0
+                new List<int>() {1, 2, 6}, // successors of vertice 1
+                new List<int>() {1, 6}, // successors of vertice 2
+                new List<int>() {6}, // successors of vertice 3
+                new List<int>() {0}, // successors of vertice 4
+                new List<int>() {}, // successors of vertice 5
+                new List<int>() {1, 2, 3} // successors of vertice 6
+            });
+
+            bool[] visited = new bool[graph.Size];
+
+            Console.WriteLine("Connected graph components: ");
+            for(int v = 0; v < graph.Size; v++)
+            {
+                if (!visited[v])
+                {
+                    GraphComponentsTraverseDFS(v, visited, graph);
+                    Console.WriteLine();
+                }
+            }
 
             ClearAfterKeyPress();
         }
