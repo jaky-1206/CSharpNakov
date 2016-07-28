@@ -25,6 +25,7 @@ namespace IntroToCSharp
                     "(11) Binary Tree Example",
                     "(12) Binary Search Tree Example",
                     "(13) Graph Components (Undirected graph Example)",
+                    "(14) Word Counting With SortedDictionary",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -67,6 +68,9 @@ namespace IntroToCSharp
                         break;
                     case "13":
                         GraphComponentsExample();
+                        break;
+                    case "14":
+                        WordCountingWithSortedDictionaryExample();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -428,6 +432,24 @@ namespace IntroToCSharp
                     GraphComponentsTraverseDFS(v, visited, graph);
                     Console.WriteLine();
                 }
+            }
+
+            ClearAfterKeyPress();
+        }
+        static void WordCountingWithSortedDictionaryExample()
+        {
+            string Text =
+                "Mary had a little lamb " +
+                "little Lamb, little Lamb, " +
+                "Mary had a Little lamb, " +
+                "whose fleece were white as snow.";
+
+            IDictionary<String, int> wordOccurrenceMap = WordCountingWithSortedDictionary.GetWordOccurrenceMap(Text);
+            foreach (var wordEntry in wordOccurrenceMap)
+            {
+                Console.WriteLine(
+                "Word '{0}' occurs {1} time(s) in the text",
+                wordEntry.Key, wordEntry.Value);
             }
 
             ClearAfterKeyPress();
