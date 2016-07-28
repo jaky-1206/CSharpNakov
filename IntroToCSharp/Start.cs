@@ -25,7 +25,10 @@ namespace IntroToCSharp
                     "(11) Binary Tree Example",
                     "(12) Binary Search Tree Example",
                     "(13) Graph Components (Undirected graph Example)",
-                    "(14) Word Counting With SortedDictionary",
+                    "(14) Word Counting With SortedDictionary (DS:Balanced Tree)",
+                    "(15) Case Insensitive Comparer using IComparer<string>",
+                    "(16) Dictionary Example (DS:Hashtable)",
+                    "(17) Dictionary with Hash-Table and Chaining",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -71,6 +74,15 @@ namespace IntroToCSharp
                         break;
                     case "14":
                         WordCountingWithSortedDictionaryExample();
+                        break;
+                    case "15":
+                        WordCountingWithSortedDictionaryUsingCaseInsensitiveComparer();
+                        break;
+                    case "16":
+                        DictionaryExample();
+                        break;
+                    case "17":
+                        DictionaryWithHashTableAndChaining();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -398,7 +410,7 @@ namespace IntroToCSharp
 
             ClearAfterKeyPress();
         }
-        static void GraphComponentsTraverseDFS(int v,bool[] visited,Graph graph)
+        static void GraphComponentsTraverseDFS(int v, bool[] visited, Graph graph)
         {
             if (!visited[v])
             {
@@ -406,7 +418,7 @@ namespace IntroToCSharp
                 visited[v] = true;
                 foreach (int child in graph.GetSuccessors(v))
                 {
-                    GraphComponentsTraverseDFS(child,visited, graph);
+                    GraphComponentsTraverseDFS(child, visited, graph);
                 }
             }
         }
@@ -425,7 +437,7 @@ namespace IntroToCSharp
             bool[] visited = new bool[graph.Size];
 
             Console.WriteLine("Connected graph components: ");
-            for(int v = 0; v < graph.Size; v++)
+            for (int v = 0; v < graph.Size; v++)
             {
                 if (!visited[v])
                 {
@@ -452,6 +464,67 @@ namespace IntroToCSharp
                 wordEntry.Key, wordEntry.Value);
             }
 
+            ClearAfterKeyPress();
+        }
+        static void WordCountingWithSortedDictionaryUsingCaseInsensitiveComparer()
+        {
+            string Text =
+                "Mary had a little lamb " +
+                "little Lamb, little Lamb, " +
+                "Mary had a Little lamb, " +
+                "whose fleece were white as snow.";
+
+            IDictionary<String, int> wordOccurrenceMap = WordCountingWithSortedDictionaryUsingIcomparer.GetWordOccurrenceMap(Text);
+            foreach (var wordEntry in wordOccurrenceMap)
+            {
+                Console.WriteLine(
+                "Word '{0}' occurs {1} time(s) in the text",
+                wordEntry.Key, wordEntry.Value);
+            }
+
+            ClearAfterKeyPress();
+        }
+        static void DictionaryExample()
+        {
+            IDictionary<string, double> studentMarks = new Dictionary<string, double>(6);
+
+            studentMarks["Alan"] = 3.00;
+            studentMarks["Helen"] = 4.50;
+            studentMarks["Tom"] = 5.50;
+            studentMarks["James"] = 3.50;
+            studentMarks["Mary"] = 4.00;
+            studentMarks["Nerdy"] = 6.00;
+
+            double marysMark = studentMarks["Mary"];
+            Console.WriteLine("Mary's mark: {0:0.00}", marysMark);
+            studentMarks.Remove("Mary");
+            Console.WriteLine("Mary's mark removed.");
+            Console.WriteLine("Is Mary in the dictionary: {0}", studentMarks.ContainsKey("Mary") ? "Yes!" : "No!");
+            Console.WriteLine("Nerdy's mark is {0:0.00}.", studentMarks["Nerdy"]);
+            studentMarks["Nerdy"] = 3.25;
+            Console.WriteLine("But we all know he deserves no more than {0:0.00}.", studentMarks["Nerdy"]);
+            double annasMark;
+            bool findAnna = studentMarks.TryGetValue("Anna",
+            out annasMark);
+            Console.WriteLine("Is Anna's mark in the dictionary? {0}", findAnna ? "Yes!" : "No!");
+            studentMarks["Anna"] = 6.00;
+            findAnna = studentMarks.TryGetValue("Anna", out annasMark);
+            Console.WriteLine("Let's try again: {0}. Anna's mark is {1}", findAnna ? "Yes!" : "No!", annasMark);
+            Console.WriteLine("Students and marks:");
+            //foreach (KeyValuePair<string, double> studentMark in studentMarks)
+            //{
+            //    Console.WriteLine("{0} has {1:0.00}", studentMark.Key, studentMark.Value);
+            //}
+            Console.WriteLine("There are {0} students in the dictionary", studentMarks.Count);
+            studentMarks.Clear();
+            Console.WriteLine("Students dictionary cleared.");
+            Console.WriteLine("Is dictionary empty: {0}", studentMarks.Count == 0);
+
+            ClearAfterKeyPress();
+        }
+        static void DictionaryWithHashTableAndChaining()
+        {
+            //TO DO
             ClearAfterKeyPress();
         }
     }
