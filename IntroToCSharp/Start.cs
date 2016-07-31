@@ -511,10 +511,10 @@ namespace IntroToCSharp
             findAnna = studentMarks.TryGetValue("Anna", out annasMark);
             Console.WriteLine("Let's try again: {0}. Anna's mark is {1}", findAnna ? "Yes!" : "No!", annasMark);
             Console.WriteLine("Students and marks:");
-            //foreach (KeyValuePair<string, double> studentMark in studentMarks)
-            //{
-            //    Console.WriteLine("{0} has {1:0.00}", studentMark.Key, studentMark.Value);
-            //}
+            foreach (System.Collections.Generic.KeyValuePair<string, double> studentMark in studentMarks)
+            {
+                Console.WriteLine("{0} has {1:0.00}", studentMark.Key, studentMark.Value);
+            }
             Console.WriteLine("There are {0} students in the dictionary", studentMarks.Count);
             studentMarks.Clear();
             Console.WriteLine("Students dictionary cleared.");
