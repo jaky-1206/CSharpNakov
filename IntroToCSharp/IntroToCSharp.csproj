@@ -70,6 +70,7 @@
     <Compile Include="Graph.cs" />
     <Compile Include="KeyValuePair.cs" />
     <Compile Include="Point3D.cs" />
+    <Compile Include="Point3DEqualityComparer.cs" />
     <Compile Include="PrimeNumberWithList.cs" />
     <Compile Include="SetUsingList.cs" />
     <Compile Include="Start.cs" />

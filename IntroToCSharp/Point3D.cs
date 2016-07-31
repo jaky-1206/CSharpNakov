@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IntroToCSharp
 {
@@ -26,8 +22,42 @@ namespace IntroToCSharp
 
         public override bool Equals(object obj)
         {
-            //
-            return base.Equals(obj);
+            if (this == obj)
+            {
+                return true;
+            }
+
+            Point3D other = obj as Point3D;
+
+            if (other == null)
+            {
+                return false;
+            }
+
+            if (!this.X.Equals(other.X))
+            {
+                return false;
+            }
+
+            if (!this.Y.Equals(other.Y))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            int prime = 83;
+            int result = 1;
+            unchecked /* The unchecked keyword is used to suppress overflow-checking for integral-type arithmetic operations and conversions. */
+            {
+                result = result * prime + X.GetHashCode();
+                result = result * prime + Y.GetHashCode();
+                result = result * prime + Z.GetHashCode();
+            }
+            return result;
         }
     }
 }

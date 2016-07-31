@@ -28,7 +28,8 @@ namespace IntroToCSharp
                     "(14) Word Counting With SortedDictionary (DS:Balanced Tree)",
                     "(15) Case Insensitive Comparer using IComparer<string>",
                     "(16) Dictionary Example (DS:Hashtable)",
-                    "(17) Dictionary with Hash-Table and Chaining",
+                    "(17) Point3DEqualityComparerExample (Hashtale,IEqualityComparer)",
+                    "(18) Dictionary with Hash-Table and Chaining",
                     "(e) Exit"));
                 Console.Clear();
                 switch (input)
@@ -82,6 +83,9 @@ namespace IntroToCSharp
                         DictionaryExample();
                         break;
                     case "17":
+                        Point3DEqualityComparerExample();
+                        break;
+                    case "18":
                         DictionaryWithHashTableAndChaining();
                         break;
                     default:
@@ -519,6 +523,23 @@ namespace IntroToCSharp
             studentMarks.Clear();
             Console.WriteLine("Students dictionary cleared.");
             Console.WriteLine("Is dictionary empty: {0}", studentMarks.Count == 0);
+
+            ClearAfterKeyPress();
+        }
+        static void Point3DEqualityComparerExample()
+        {
+            IEqualityComparer<Point3D> comparer = new Point3DEqualityComparer();
+            Dictionary<Point3D, int> dict = new Dictionary<Point3D, int>(comparer);
+
+            dict[new Point3D(4, 2, 5)] = 5;
+            dict[new Point3D(1, 2, 3)] = 1;
+            dict[new Point3D(3, 1, -1)] = 3;
+            dict[new Point3D(1, 2, 3)] = 10;
+
+            foreach(var entry in dict)
+            {
+                Console.WriteLine("{0} --> {1}", entry.Key, entry.Value);   
+            }
 
             ClearAfterKeyPress();
         }
